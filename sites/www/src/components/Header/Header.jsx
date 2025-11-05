@@ -13,7 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import logo from "../../assets/logo.png";
-import heroImage from "../../assets/stays/tentlights.jpg";
+import heroImage from "../../assets/image_00.jpg";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -102,7 +102,7 @@ export default function Header() {
         {/* CTA Button */}
         <Button
           component={Link}
-          to="/book"
+          to="/contact"
           sx={{
             position: "absolute",
             top: "72%",
@@ -115,6 +115,8 @@ export default function Header() {
             px: 4,
             py: 1,
             zIndex: 2,
+            "&:hover": { backgroundColor: "#829B97" },
+            fontFamily: "'Zen Loop', cursive",
           }}
         >
           BOOK NU
@@ -128,7 +130,7 @@ export default function Header() {
               position: "absolute",
               top: 20,
               right: 20,
-              background: "rgba(119,141,134,0.9)",
+              background: "#829B97",
               color: "white",
               borderRadius: "25px 0",
               zIndex: 3,
@@ -156,7 +158,9 @@ export default function Header() {
                   fontSize: "25px",
                   color: "white",
                   textDecoration: "none",
-                  "&:hover": { opacity: 0.8 },
+                  padding: "8px 12px",
+                  borderRadius: "15px 0",
+                  "&:hover": { backgroundColor: "#829B97" },
                 }}
               >
                 {link.label}

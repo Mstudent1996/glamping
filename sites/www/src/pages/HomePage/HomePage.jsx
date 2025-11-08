@@ -2,10 +2,103 @@ import { Box, Container, Typography, Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import Gitte from '../../assets/gitte.jpg';
 import ReviewsList from "../../components/reviewslist/ReviewsList";
+import heroImage from "../../assets/image_00.jpg";
+import logo from "../../assets/logo.png";
 
-export default function IntroSection() {
+export default function HomePage() {
+
   return (
     <Box>
+      {/* HERO */}
+      <Box
+        sx={{
+          width: "100%",
+          height: "550px",
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      ></Box>
+      {/* Background Image */}
+      <Box
+        component="img"
+        src={heroImage}
+        alt="Ophold"
+        sx={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 0,
+        }}
+      />
+      {/* Color overlay */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "rgba(119,141,134,0.55)",
+          zIndex: 1,
+        }}
+      />
+      {/* Logo */}
+      <Box
+        component="img"
+        src={logo}
+        alt="Logo"
+        sx={{
+          position: "absolute",
+          top: "40%",
+          left: "50%",
+          transform: "translate(-50%, -100%)",
+          width: "70px",
+          zIndex: 2,
+        }}
+      />
+      {/* Title */}
+      <Typography
+        sx={{
+          position: "absolute",
+          top: "53%",
+          left: "50%",
+          transform: "translate(-50%, -100%)",
+          fontFamily: "'Zen Loop', cursive",
+          fontSize: "46px",
+          color: "white",
+          textAlign: "center",
+          lineHeight: 1.05,
+          zIndex: 2,
+          marginTop: "8px",
+        }}
+      >
+        Gittes <br /> Glamping
+      </Typography>
+
+{/* CTA Button */}
+        <Button
+          component={Link}
+          to="/contact"
+          sx={{
+            position: "absolute",
+            top: "60%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            border: "2px solid white",
+            borderRadius: "25px 0",
+            color: "white",
+            fontSize: "18px",
+            px: 4,
+            py: 1,
+            zIndex: 2,
+            "&:hover": { backgroundColor: "#829B97", borderColor: "transparent" },
+            fontFamily: "'Zen Loop', cursive",
+          }}
+        >
+          BOOK NU
+        </Button>
+
       <Box
         sx={{
           width: "100%",
@@ -14,12 +107,13 @@ export default function IntroSection() {
           borderBottomRightRadius: { xs: "40px" },
           position: "relative",
           zIndex: 10,
+          mt: "30px",
 
           transform: {
-            xs: "translateY(-70px)",
-            sm: "translateY(-100px)",
-            md: "translateY(-100px)",
-            lg: "translateY(-120px)",
+            xs: "translateY(50px)",
+            sm: "translateY(50px)",
+            md: "translateY(50px)",
+            lg: "translateY(50px)",
           },
 
           pt: { xs: 6, sm: 8, md: 10 },
@@ -106,8 +200,8 @@ export default function IntroSection() {
                   color: "white",
                   padding: "8px 12px",
                   borderRadius: "15px 0",
-                  border: "2px solid white",
-                  "&:hover": { backgroundColor: "#829B97" },
+                  backgroundColor: "#829b97",
+                  "&:hover": { backgroundColor: "#5a8981ff" },
                 }}
               >
                 Se vores ophold
@@ -116,7 +210,7 @@ export default function IntroSection() {
           </Grid>
         </Container>
       </Box>
-      <Box sx={{ position: "relative", mt: { xs: -8, md: -18 }, zIndex: 5 }}>
+      <Box sx={{ position: "relative", mt: { xs: 5, md: 2 }, zIndex: 5 }}>
         <ReviewsList />
       </Box>
     </Box>

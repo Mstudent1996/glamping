@@ -20,7 +20,7 @@ const theme = createTheme({
   },
 
   typography: {
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "'Nanum Gothic', sans-serif",
     fontDisplay: "swap",
     h1: { fontFamily: "'Zen Loop', cursive" },
     h2: { fontFamily: "'Zen Loop', cursive" },
@@ -56,7 +56,6 @@ const theme = createTheme({
             paddingTop: "48px",
             paddingBottom: "64px",
 
-            // Responsive: tablet + desktop
             "@media (min-width:600px)": {
               transform: "translateY(-60px)",
               paddingTop: "64px",

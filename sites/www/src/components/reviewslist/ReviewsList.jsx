@@ -35,7 +35,8 @@ export default function ReviewsList() {
           variant="h3"
           sx={{
             fontFamily: "'Zen Loop', cursive",
-            fontWeight: 600,
+            fontWeight: 200,
+            color: "white",
             fontSize: { xs: "2rem", md: "3rem" },
           }}
         >
@@ -45,7 +46,7 @@ export default function ReviewsList() {
         </Typography>
       </Box>
 
-      {/* ✅ Grid på desktop, kolonne på mobil */}
+      {/* Grid på desktop, kolonne på mobil */}
       <Box
         sx={{
           display: "grid",
@@ -77,7 +78,7 @@ export default function ReviewsList() {
 
             <Typography
               variant="subtitle1"
-              sx={{ fontFamily: "'Caveat', cursive", mb: 2 }}
+              sx={{ fontFamily: "'Zen Loop', cursive", mb: 2 }}
             >
               Har været på {rev.stay?.toLowerCase()}
             </Typography>

@@ -8,21 +8,20 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#33626C",
+        backgroundColor: "#2A4F57",
         py: 4,
         px: 2,
       }}
     >
-     <Grid
-  container
-  spacing={2}
-  alignItems="center"
-  justifyContent={{ xs: "center", md: "space-between" }}
-  textAlign="center"
->
-
+      <Grid
+        container
+        spacing={2}
+        alignItems="center"
+        justifyContent={{ xs: "center", md: "space-between" }}
+        textAlign="center"
+      >
         {/* SOCIAL ICONS */}
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Box
             sx={{
               display: "flex",
@@ -49,7 +48,6 @@ export default function Footer() {
             </IconButton>
           </Box>
 
-          {/* MOBILE ONLY — logo under icons */}
           <Box
             sx={{
               display: { xs: "flex", md: "none" },
@@ -82,9 +80,6 @@ export default function Footer() {
 
         {/* DESKTOP LOGO */}
         <Grid
-          item
-          xs={12}
-          md={4}
           sx={{ display: { xs: "none", md: "flex" }, justifyContent: "center" }}
         >
           <Box
@@ -114,9 +109,6 @@ export default function Footer() {
 
         {/* RIGHT SECTION (desktop only for now) */}
         <Grid
-          item
-          xs={12}
-          md={4}
           sx={{
             display: { xs: "none", md: "flex" },
             justifyContent: "flex-end",
@@ -126,9 +118,15 @@ export default function Footer() {
             fontSize: "14px",
           }}
         >
-          <Typography>Gittes Glamping</Typography>
-          <Typography>info@gittesglamping.dk</Typography>
-          <Typography>+45 12 34 56 78</Typography>
+          <Typography sx={{ fontFamily: "'Nanum Gothic', sans-serif" }}>
+            Gittes Glamping
+          </Typography>
+          <Typography sx={{ fontFamily: "'Nanum Gothic', sans-serif" }}>
+            info@gittesglamping.dk
+          </Typography>
+          <Typography sx={{ fontFamily: "'Nanum Gothic', sans-serif" }}>
+            +45 12 34 56 78
+          </Typography>
         </Grid>
       </Grid>
     </Box>

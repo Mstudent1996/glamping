@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Box, Container, CssBaseline } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 
-import Homepage from "./pages/homepage/HomePage";
+import HomePage from "./pages/homepage/HomePage";
 import Contact from "./pages/contact/Contact";
 import Activities from "./pages/activities/Activities";
-import ServicesPage from "./pages/servicespage/ServicesPage";
+import StaysPage from "./pages/stays/StaysPage";
+import StayDetail from "./pages/staydetail/StayDetail";
 
 export default function App() {
   return (
@@ -15,36 +16,24 @@ export default function App() {
       <CssBaseline />
 
       {/* App wrapper */}
-      <Box sx={{ width: "100%", overflowX: "hidden" }}>
+      <Box
+        sx={{
+          width: "100%",
+          overflowX: "hidden",
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
         <Header />
 
         {/* ROUTES */}
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route
-            path="/contact"
-            element={
-              <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Contact />
-              </Container>
-            }
-          />
-          <Route
-            path="/activities"
-            element={
-              <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <Activities />
-              </Container>
-            }
-          />
-          <Route
-            path="/servicespage"
-            element={
-              <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                <ServicesPage />
-              </Container>
-            }
-          />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/stays" element={<StaysPage />} />
+          <Route path="/stay/:id" element={<StayDetail />} />
         </Routes>
 
         <Footer />

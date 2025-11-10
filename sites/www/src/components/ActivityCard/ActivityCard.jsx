@@ -53,6 +53,7 @@ export default function ActivityCard({ title, image, time, description }) {
           <Typography
             sx={{
               fontFamily: "Zen Loop, sans-serif",
+              fontWeight: "400",
               fontSize: "1.8rem",
               color: "white",
               lineHeight: 1.2,

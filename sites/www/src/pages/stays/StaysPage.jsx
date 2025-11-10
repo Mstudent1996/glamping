@@ -17,7 +17,7 @@ useEffect(() => {
     .get("http://localhost:3042/stays")
     .then((res) => {
       console.log("API response:", res.data);
-      setStays(res.data.data); // <-- rettet her
+      setStays(res.data.data);
     })
     .catch((err) => console.error("Fejl ved hentning af ophold:", err))
     .finally(() => setLoading(false));
@@ -96,7 +96,7 @@ useEffect(() => {
           right: "50%",
           marginLeft: "-50vw",
           marginRight: "-50vw",
-          backgroundColor: "primary.main",
+          backgroundColor: "#33626C",
           color: "white",
           textAlign: "center",
           px: { xs: 3, sm: 6, md: 10 },
@@ -242,15 +242,15 @@ useEffect(() => {
                   }}
                 />
 
-                <Link to={`/stay/${stay._id}`}
-                  style=
-                  {{
+                <Link
+                  to={`/stay/${stay._id}`}
+                  style={{
                     textDecoration: "none",
                     width: "100%",
                     display: "flex",
                     justifyContent: "center",
                   }}
-                  >
+                >
                   <Box
                     sx={{
                       backgroundColor: "#6C8A8D",

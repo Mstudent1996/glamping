@@ -1,14 +1,13 @@
 import { Box, Container, Typography, Button, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
-import Gitte from '../../assets/gitte.jpg';
+import Gitte from "../../assets/gitte.jpg";
 import ReviewsList from "../../components/reviewslist/ReviewsList";
 import heroImage from "../../assets/image_00.jpg";
 import logo from "../../assets/logo.png";
 
 export default function HomePage() {
-
   return (
-    <Box>
+    <Box sx={{ overflowX: "hidden" }}>
       {/* HERO */}
       <Box
         sx={{
@@ -18,65 +17,70 @@ export default function HomePage() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-        }}
-      ></Box>
-      {/* Background Image */}
-      <Box
-        component="img"
-        src={heroImage}
-        alt="Ophold"
-        sx={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 0,
-        }}
-      />
-      {/* Color overlay */}
-      <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(119,141,134,0.55)",
-          zIndex: 1,
-        }}
-      />
-      {/* Logo */}
-      <Box
-        component="img"
-        src={logo}
-        alt="Logo"
-        sx={{
-          position: "absolute",
-          top: "40%",
-          left: "50%",
-          transform: "translate(-50%, -100%)",
-          width: "70px",
-          zIndex: 2,
-        }}
-      />
-      {/* Title */}
-      <Typography
-        sx={{
-          position: "absolute",
-          top: "53%",
-          left: "50%",
-          transform: "translate(-50%, -100%)",
-          fontFamily: "'Zen Loop', cursive",
-          fontSize: "46px",
-          color: "white",
-          textAlign: "center",
-          lineHeight: 1.05,
-          zIndex: 2,
-          marginTop: "8px",
+          overflow: "hidden",
+          mb: "-5px",
         }}
       >
-        Gittes <br /> Glamping
-      </Typography>
+        {/* Background Image */}
+        <Box
+          component="img"
+          src={heroImage}
+          alt="Ophold"
+          sx={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 1,
+          }}
+        />
 
-{/* CTA Button */}
+        {/* Color overlay */}
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            backgroundColor: "rgba(119,141,134,0.55)",
+            zIndex: 2,
+          }}
+        />
+
+        {/* Logo */}
+        <Box
+          component="img"
+          src={logo}
+          alt="Logo"
+          sx={{
+            position: "absolute",
+            top: "35%",
+            left: "50%",
+            transform: "translate(-50%, -100%)",
+            width: "70px",
+            zIndex: 2,
+          }}
+        />
+
+        {/* Title */}
+        <Typography
+          sx={{
+            position: "absolute",
+            top: "53%",
+            left: "50%",
+            transform: "translate(-50%, -100%)",
+            fontFamily: "'Zen Loop', cursive",
+            fontSize: "46px",
+            color: "white",
+            textAlign: "center",
+            lineHeight: 1.05,
+            zIndex: 2,
+            marginTop: "8px",
+          }}
+        >
+          Gittes <br /> Glamping
+        </Typography>
+
+        {/* CTA Button */}
         <Button
           component={Link}
           to="/contact"
@@ -92,13 +96,18 @@ export default function HomePage() {
             px: 4,
             py: 1,
             zIndex: 2,
-            "&:hover": { backgroundColor: "#829B97", borderColor: "transparent" },
+            "&:hover": {
+              backgroundColor: "#829B97",
+              borderColor: "transparent",
+            },
             fontFamily: "'Zen Loop', cursive",
           }}
         >
           BOOK NU
         </Button>
+      </Box>
 
+      {/* INTRO-SEKTION */}
       <Box
         sx={{
           width: "100%",
@@ -106,18 +115,11 @@ export default function HomePage() {
           borderTopLeftRadius: { xs: "40px" },
           borderBottomRightRadius: { xs: "40px" },
           position: "relative",
-          zIndex: 10,
-          mt: "30px",
-
-          transform: {
-            xs: "translateY(50px)",
-            sm: "translateY(50px)",
-            md: "translateY(50px)",
-            lg: "translateY(50px)",
-          },
-
+          zIndex: 2,
           pt: { xs: 6, sm: 8, md: 10 },
           pb: { xs: 8, sm: 10, md: 12 },
+          mt: { xs: -5, sm: -5, md: -5 }
+
         }}
       >
         <Container maxWidth="lg">
@@ -202,6 +204,7 @@ export default function HomePage() {
                   borderRadius: "15px 0",
                   backgroundColor: "#829b97",
                   "&:hover": { backgroundColor: "#5a8981ff" },
+                  border: "none"
                 }}
               >
                 Se vores ophold
@@ -210,7 +213,9 @@ export default function HomePage() {
           </Grid>
         </Container>
       </Box>
-      <Box sx={{ position: "relative", mt: { xs: 5, md: 2 }, zIndex: 5 }}>
+
+      {/* REVIEWS-SEKTION */}
+      <Box sx={{ position: "relative", mt: { xs: -5, md: -5 }, zIndex: 5 , pt: "10px"}}>
         <ReviewsList />
       </Box>
     </Box>

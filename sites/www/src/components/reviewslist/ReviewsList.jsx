@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, Container, useTheme } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 
 export default function ReviewsList() {
-  const theme = useTheme();
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
@@ -14,21 +13,26 @@ export default function ReviewsList() {
 
   return (
     <Container
+      maxWidth={false}
+      disableGutters
       sx={{
         textAlign: "center",
-        py: { xs: 4, md: 8 },
+        py: { xs: 6, md: 10 }, // mere luft top/bund
+        px: { xs: 2, md: 6 }, // tilføjer lidt vandret padding
+        backgroundColor: "#CED3CD",
+        width: "100vw",
       }}
     >
       {/* Titel */}
       <Box
         sx={{
-          backgroundColor: theme.palette.tertiary.main,
+          backgroundColor: "#C5B496",
           display: "inline-block",
           px: { xs: 4, md: 10 },
           py: { xs: 2, md: 3 },
           borderTopLeftRadius: "40px",
           borderBottomRightRadius: "40px",
-          mb: 6,
+          mb: 8, // lidt mere luft under titlen
         }}
       >
         <Typography
@@ -51,7 +55,7 @@ export default function ReviewsList() {
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-          gap: 4,
+          gap: 5, // lidt mere afstand mellem kortene
           width: "100%",
           justifyItems: "center",
         }}
@@ -60,13 +64,13 @@ export default function ReviewsList() {
           <Box
             key={rev._id}
             sx={{
-              backgroundColor: theme.palette.quaternary.main,
+              backgroundColor: "#829B97",
               color: "white",
               borderTopLeftRadius: "40px",
               borderBottomRightRadius: "40px",
-              p: 3,
+              p: { xs: 3, md: 4 }, // lidt større padding i kortene
               textAlign: "center",
-              width: "100%",
+              width: { xs: "90%", md: "80%" }, // mere luft i siderne
             }}
           >
             <Typography
@@ -83,7 +87,13 @@ export default function ReviewsList() {
               Har været på {rev.stay?.toLowerCase()}
             </Typography>
 
-            <Typography sx={{ fontSize: "0.95rem", lineHeight: 1.5, fontFamily: "'Nanum Gothic', sans-serif" }}>
+            <Typography
+              sx={{
+                fontSize: "0.95rem",
+                lineHeight: 1.5,
+                fontFamily: "'Nanum Gothic', sans-serif",
+              }}
+            >
               {rev.review}
             </Typography>
           </Box>

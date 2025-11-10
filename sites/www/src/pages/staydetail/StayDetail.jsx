@@ -121,7 +121,15 @@ export default function StayDetail() {
           position: "relative",
         }}
       >
+        <Box
+          sx= {{
+            display: "flex",
+          }}
+        >
+
         {/* Titel & beskrivelse */}
+        <Box>
+
         <Typography
           variant="h4"
           sx={{
@@ -129,7 +137,7 @@ export default function StayDetail() {
             fontSize: "clamp(1.8rem, 3vw, 2.6rem)",
             mb: 2,
           }}
-        >
+          >
           {stay.subtitle || "Tag væk en weekend, med én du holder af"}
         </Typography>
 
@@ -141,12 +149,20 @@ export default function StayDetail() {
             lineHeight: 1.6,
             mb: 4,
           }}
-        >
+          >
           {stay.description ||
             "Drømmer du om at tilbringe kvalitetstid med din elskede i et idyllisk, naturskønt miljø, langt væk fra hverdagens travlhed? Vores romantiske glampingophold er den perfekte mulighed for jer til at fordybe jer i hinandens selskab og skabe uforglemmelige minder i en luksuriøs campingoplevelse som ingen anden."}
         </Typography>
+            </Box>
 
         {/* Liste med indhold */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column"
+          }}
+        >
+
         <Box
           sx={{
             display: "flex",
@@ -155,7 +171,7 @@ export default function StayDetail() {
             fontFamily: "'Nanum Gothic', sans-serif",
             mb: 4,
           }}
-        >
+          >
           <Typography>Morgenmad</Typography>
           <Typography>Prosecco</Typography>
           <Typography>Afslapningsområde</Typography>
@@ -170,7 +186,7 @@ export default function StayDetail() {
             fontSize: "1.2rem",
             mb: 3,
           }}
-        >
+          >
           Pris: {stay.price || "4200,-"}
         </Typography>
 
@@ -196,11 +212,13 @@ export default function StayDetail() {
               transform: "scale(1.05)",
             },
           }}
-        >
+          >
           Book nu
+        </Box>
         </Box>
       </Box>
     </Box>
+  </Box>
   );
 
 }

@@ -21,6 +21,16 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+     if (!/\S+@\S+\.\S+/.test(formData.email)) {
+       toast.error("Indtast en gyldig e-mailadresse", {
+         position: "top-center",
+         autoClose: 3000,
+         theme: "colored",
+         transition: Slide,
+       });
+       return;
+     }
+
     toast.success("Tak for din besked! Vi vender snart tilbage", {
       position: "top-center",
       autoClose: 3000,
@@ -296,7 +306,7 @@ export default function Contact() {
             component="button"
             type="submit"
             sx={{
-              backgroundColor: "rgba(255,255,255,0.2)",
+              backgroundColor: "#829B97",
               border: "none",
               borderRadius: "20px 0",
               color: "white",
@@ -307,7 +317,7 @@ export default function Contact() {
               cursor: "pointer",
               transition: "all 0.3s ease",
               "&:hover": {
-                backgroundColor: "rgba(255,255,255,0.35)",
+                backgroundColor: "#5f918aff",
                 transform: "scale(1.05)",
               },
             }}

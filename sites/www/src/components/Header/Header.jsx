@@ -32,9 +32,12 @@ export default function Header() {
           position="absolute"
           sx={{
             background: "transparent",
-            boxShadow: "none",
             top: 0,
-            zIndex: 10,
+            zIndex: 1,
+            backgroundColor: "#33626C",
+            padding: "10px",
+            position: "fixed",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)",
           }}
         >
           <Toolbar sx={{ justifyContent: "space-between", px: 3 }}>

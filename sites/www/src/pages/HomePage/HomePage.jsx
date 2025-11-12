@@ -7,12 +7,12 @@ import logo from "../../assets/logo.png";
 
 export default function HomePage() {
   return (
-    <Box sx={{ overflowX: "hidden" }}>
+    <Box sx={{ overflowX: "hidden" }}> {/* Sørger for der ikke er scroll i bunden */}
       {/* HERO */}
       <Box
         sx={{
           width: "100%",
-          height: "550px",
+          height: { xs: "90vh", md: "100vh" },
           position: "relative",
           display: "flex",
           justifyContent: "center",
@@ -30,7 +30,7 @@ export default function HomePage() {
             position: "absolute",
             inset: 0,
             width: "100%",
-            height: "100%",
+            height: "100vh",
             objectFit: "cover",
             zIndex: 1,
           }}

@@ -9,7 +9,7 @@ export default function Activities() {
       <Box
         sx={{
           position: "relative",
-          height: { xs: "40vh", md: "55vh" },
+          height: { xs: "80vh", md: "100vh" },
           overflow: "hidden",
           zIndex: 0,
         }}
@@ -26,6 +26,7 @@ export default function Activities() {
             objectFit: "cover",
           }}
         />
+
         <Box
           sx={{
             position: "absolute",
@@ -33,6 +34,7 @@ export default function Activities() {
             background: "rgba(0,0,0,0.4)",
           }}
         />
+
         <Box
           sx={{
             position: "absolute",
@@ -56,7 +58,7 @@ export default function Activities() {
         </Box>
       </Box>
 
-      {/* Intro — fylder hele bredden */}
+      {/* Intro */}
       <Box
         sx={{
           position: "relative",
@@ -104,7 +106,7 @@ export default function Activities() {
         </Typography>
       </Box>
 
-      {/* Activities Section */}
+      {/* Activities Sektion */}
       <Box
         sx={{
           backgroundColor: "#CED3CD",

@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { useParams } from "react-router-dom"; // Læser id fra url'en
+import axios from "axios"; // Axios kan være god ved mange API-kald eller brug af tokens, error handling og kortere kode
 import { Box, Typography, CircularProgress } from "@mui/material";
 import { Link } from 'react-router-dom'
 
 export default function StayDetail() {
-  const { id } = useParams();
-  const [stay, setStay] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { id } = useParams(); // henter id fra url i App
+  const [stay, setStay] = useState(null); // Data for det valgte ophold
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3042/stay/${id}`)
+      .get(`http://localhost:3042/stay/${id}`) // Henter data fra id
       .then((res) => {
+        // Der tjekkes hvilken metode der er bedst at retunere data på
         const raw = Array.isArray(res.data)
           ? res.data[0]
           : Array.isArray(res.data?.data)
@@ -24,6 +25,7 @@ export default function StayDetail() {
       .finally(() => setLoading(false));
   }, [id]);
 
+  // Vis loading mens data hentes
   if (loading)
     return (
       <Box
@@ -38,6 +40,7 @@ export default function StayDetail() {
       </Box>
     );
 
+// Fejlbesked hvis opholdet ikke findes
   if (!stay)
     return (
       <Box sx={{ textAlign: "center", mt: 10 }}>Opholdet blev ikke fundet</Box>
@@ -50,7 +53,7 @@ export default function StayDetail() {
         sx={{
           position: "relative",
           width: "100vw",
-          height: "70vh",
+          height: "100vh",
           overflow: "hidden",
         }}
       >

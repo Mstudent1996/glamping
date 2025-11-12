@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Box, TextField, Typography } from "@mui/material";
-import { ToastContainer, toast, Slide } from "react-toastify";
+import { ToastContainer, toast, Slide } from "react-toastify"; // Bruges til beskeder ved submit
 import "react-toastify/dist/ReactToastify.css";
 import contactImage from '../../assets/image_03.jpg';
 export default function Contact() {
+  // Hvad brugeren indtaster i formularen gemmes
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,6 +12,7 @@ export default function Contact() {
     message: "",
   });
 
+  // Ved ændringer i et felt opdateres det i formData
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -19,9 +21,11 @@ export default function Contact() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Forhindrer reload
 
+    // Sikrer at e-mailens format er gyldigt - regex
      if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      // Viser rød fejlmeddelse
        toast.error("Indtast en gyldig e-mailadresse", {
          position: "top-center",
          autoClose: 3000,
@@ -31,6 +35,7 @@ export default function Contact() {
        return;
      }
 
+     // Viser grøn successbesked
     toast.success("Tak for din besked! Vi vender snart tilbage", {
       position: "top-center",
       autoClose: 3000,
@@ -52,7 +57,7 @@ export default function Contact() {
         sx={{
           position: "relative",
           width: "100vw",
-          height: "60vh",
+          height: "100vh",
           overflow: "hidden",
         }}
       >
@@ -287,7 +292,7 @@ export default function Contact() {
               variant="standard"
               fullWidth
               required
-              InputProps={{
+              slotProps={{
                 disableUnderline: true,
                 sx: {
                   backgroundColor: "transparent",

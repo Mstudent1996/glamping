@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"; // Styrer om mobilmenuen er åben
 import {
   Box,
   AppBar,
@@ -7,16 +7,18 @@ import {
   Drawer,
   Link as MuiLink,
   useMediaQuery,
-} from "@mui/material";
+} from "@mui/material"; // useMediaQuery bruges til responsitivitet
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import useLocation
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [menuOpen, setMenuOpen] = useState(false); // Holder styr på om mobilmenuen er åben
+  const isMobile = useMediaQuery("(max-width: 768px)"); // Bliver true når skærmen er 768px bred eller mindre
+  const location = useLocation(); // Bruges til at vide hvilken side man er på
 
+  // Array med navigationselementer
   const navLinks = [
     { label: "Forside", path: "/" },
     { label: "Ophold", path: "/stays" },
@@ -50,24 +52,30 @@ export default function Header() {
             </Link>
 
             <Box sx={{ display: "flex", gap: 3 }}>
-              {navLinks.map((link) => (
-                <MuiLink
-                  key={link.path}
-                  component={Link}
-                  to={link.path}
-                  sx={{
-                    fontFamily: "'Zen Loop', cursive",
-                    fontSize: "25px",
-                    color: "white",
-                    textDecoration: "none",
-                    padding: "8px 12px",
-                    borderRadius: "15px 0",
-                    "&:hover": { backgroundColor: "#829B97" },
-                  }}
-                >
-                  {link.label}
-                </MuiLink>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <MuiLink
+                    key={link.path}
+                    component={Link}
+                    to={link.path}
+                    sx={{
+                      fontFamily: "'Zen Loop', cursive",
+                      fontSize: "25px",
+                      color: "white",
+                      textDecoration: "none",
+                      padding: "8px 12px",
+                      borderRadius: "15px 0",
+                      backgroundColor: isActive ? "#829B97" : "transparent",
+                      fontWeight: isActive ? "bold" : "normal",
+                      "&:hover": { backgroundColor: "#829B97" },
+                      transition: "0.3s",
+                    }}
+                  >
+                    {link.label}
+                  </MuiLink>
+                );
+              })}
             </Box>
           </Toolbar>
         </AppBar>
@@ -76,7 +84,7 @@ export default function Header() {
       {/* MOBILE HEADER */}
       {isMobile && (
         <AppBar
-          position="absolute"
+          position="fixed"
           sx={{
             background: "transparent",
             boxShadow: "none",
@@ -129,22 +137,28 @@ export default function Header() {
             <CloseIcon sx={{ fontSize: 34 }} />
           </IconButton>
 
-          {navLinks.map((link) => (
-            <MuiLink
-              key={link.path}
-              component={Link}
-              to={link.path}
-              sx={{
-                fontFamily: "'Zen Loop', cursive",
-                fontSize: "32px",
-                color: "white",
-                textDecoration: "none",
-              }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </MuiLink>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path; // Tjekker om location og link path er den samme
+            return (
+              <MuiLink
+                key={link.path}
+                component={Link}
+                to={link.path}
+                sx={{
+                  fontFamily: "'Zen Loop', cursive",
+                  fontSize: "32px",
+                  color: "white",
+                  textDecoration: "none",
+                  fontWeight: isActive ? "bold" : "normal",
+                  borderBottom: isActive ? "2px solid white" : "none",
+                  paddingBottom: "4px",
+                }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </MuiLink>
+            );
+          })}
         </Box>
       </Drawer>
     </Box>

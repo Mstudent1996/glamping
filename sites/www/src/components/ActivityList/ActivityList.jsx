@@ -3,14 +3,14 @@ import { Box, CircularProgress, Typography, Grid } from "@mui/material";
 import ActivityCard from '../activitycard/ActivityCard'
 
 export default function ActivityList() {
-  const [activities, setActivities] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [activities, setActivities] = useState([]); // Gemmer liste over aktiviteter
+  const [loading, setLoading] = useState(true); // Loading spinner
+  const [error, setError] = useState(null); // Fejlbesked
 
   useEffect(() => {
     const fetchActivities = async () => {
       try {
-        const response = await fetch("http://localhost:3042/activities");
+        const response = await fetch("http://localhost:3042/activities"); // Kalder aktiviteter fra API
         if (!response.ok)
           throw new Error(`HTTP error! status: ${response.status}`);
 
@@ -24,7 +24,7 @@ export default function ActivityList() {
         console.error("Fetch error:", err);
         setError("Kunne ikke hente aktiviteter.");
       } finally {
-        setLoading(false);
+        setLoading(false); // Loading tilstand stoppes når alt er hentet
       }
     };
 
@@ -55,11 +55,11 @@ export default function ActivityList() {
   return (
     <Grid
       container
-      spacing={{ xs: 4, sm: 6, md: 8 }} // lidt mere luft på store skærme
+      spacing={{ xs: 4, sm: 6, md: 8 }}
       sx={{
         justifyContent: "center",
-        px: { xs: 2, sm: 4, md: 10 }, // ekstra sideafstand på web
-        py: { xs: 4, md: 8 }, // mere lodret luft
+        px: { xs: 2, sm: 4, md: 10 },
+        py: { xs: 4, md: 8 },
       }}
     >
       {activities.map((activity) => (

@@ -4,6 +4,7 @@ import { Box, Typography, Container } from "@mui/material";
 export default function ReviewsList() {
   const [reviews, setReviews] = useState([]);
 
+  // Henter reviews fra backend
   useEffect(() => {
     fetch("http://localhost:3042/reviews")
       .then((res) => res.json())
@@ -17,8 +18,8 @@ export default function ReviewsList() {
       disableGutters
       sx={{
         textAlign: "center",
-        py: { xs: 6, md: 10 }, // mere luft top/bund
-        px: { xs: 2, md: 6 }, // tilføjer lidt vandret padding
+        py: { xs: 6, md: 10 },
+        px: { xs: 2, md: 6 },
         backgroundColor: "#CED3CD",
         width: "100vw",
       }}
@@ -32,7 +33,7 @@ export default function ReviewsList() {
           py: { xs: 2, md: 3 },
           borderTopLeftRadius: "40px",
           borderBottomRightRadius: "40px",
-          mb: 8, // lidt mere luft under titlen
+          mb: 8,
         }}
       >
         <Typography
@@ -55,7 +56,7 @@ export default function ReviewsList() {
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-          gap: 5, // lidt mere afstand mellem kortene
+          gap: 5,
           width: "100%",
           justifyItems: "center",
         }}
@@ -68,9 +69,9 @@ export default function ReviewsList() {
               color: "white",
               borderTopLeftRadius: "40px",
               borderBottomRightRadius: "40px",
-              p: { xs: 3, md: 4 }, // lidt større padding i kortene
+              p: { xs: 3, md: 4 },
               textAlign: "center",
-              width: { xs: "90%", md: "80%" }, // mere luft i siderne
+              width: { xs: "90%", md: "80%" },
             }}
           >
             <Typography

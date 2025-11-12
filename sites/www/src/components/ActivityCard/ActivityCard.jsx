@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Box, Typography, IconButton, Collapse } from "@mui/material";
+import { Box, Typography, IconButton, Collapse } from "@mui/material"; // Collapse bruges til smooth animation ved udvidelse
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 
 export default function ActivityCard({ title, image, time, description }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false); // Vurderer om beskrivelsen er udvidet eller ej
 
   return (
+    /* Yderste box */
     <Box
       sx={{
         position: "relative",
@@ -21,6 +22,7 @@ export default function ActivityCard({ title, image, time, description }) {
       }}
     >
 
+      {/* Billede */}
       <Box sx={{ position: "relative" }}>
         <img
           src={image}
@@ -34,6 +36,7 @@ export default function ActivityCard({ title, image, time, description }) {
           }}
         />
 
+        {/* Titel */}
         <Box
           sx={{
             position: "absolute",
@@ -63,6 +66,7 @@ export default function ActivityCard({ title, image, time, description }) {
           </Typography>
         </Box>
 
+        {/* Info */}
         <Box
           sx={{
             position: "absolute",
@@ -112,7 +116,7 @@ export default function ActivityCard({ title, image, time, description }) {
             >
               {expanded ? "Læs mindre" : "Læs mere"}{" "}
               {expanded ? (
-                <ExpandLessIcon sx={{ fontSize: "1.2rem", mt: "2px" }} /> // mt = flyt ikonet lidt ned
+                <ExpandLessIcon sx={{ fontSize: "1.2rem", mt: "2px" }} />
               ) : (
                 <ExpandMoreIcon sx={{ fontSize: "1.2rem", mt: "2px" }} />
               )}

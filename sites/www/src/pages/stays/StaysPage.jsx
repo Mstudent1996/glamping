@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {
-  Box,
-  Typography,
-  CircularProgress,
-} from "@mui/material";
+import { Box, Typography, CircularProgress } from "@mui/material";
 import StaysImage from "../../assets/Image_01.jpg";
 import { Link } from "react-router-dom";
 
@@ -12,18 +8,15 @@ export default function StaysPage() {
   const [stays, setStays] = useState([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  axios
-    .get("http://localhost:3042/stays")
-    .then((res) => {
-      console.log("API response:", res.data);
-      setStays(res.data.data);
-    })
-    .catch((err) => console.error("Fejl ved hentning af ophold:", err))
-    .finally(() => setLoading(false));
-}, []);
-
-
+  useEffect(() => {
+    axios
+      .get("http://localhost:3042/stays")
+      .then((res) => {
+        setStays(res.data.data);
+      })
+      .catch((err) => console.error("Fejl ved hentning af ophold:", err))
+      .finally(() => setLoading(false));
+  }, []);
 
   if (loading) {
     return (
@@ -34,7 +27,8 @@ useEffect(() => {
   }
 
   return (
-    <Box>
+    <Box sx={{ overflowX: "hidden", overflowY: "hidden" }}>
+      {/* HERO */}
       <Box
         sx={{
           position: "relative",
@@ -45,29 +39,29 @@ useEffect(() => {
           right: "50%",
           marginLeft: "-50vw",
           marginRight: "-50vw",
-          mt: { xs: -8, sm: -20 },
           zIndex: 1,
         }}
       >
+        {/* Baggrundsbillede */}
         <Box
           component="img"
           src={StaysImage}
           alt="Vores ophold"
           sx={{
+            position: "absolute",
+            inset: 0,
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            filter: "brightness(70%)",
+            filter: "brightness(65%) contrast(105%)",
           }}
         />
 
+        {/* Tekst ovenpå */}
         <Box
           sx={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
+            inset: 0,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -88,6 +82,7 @@ useEffect(() => {
         </Box>
       </Box>
 
+      {/* INTRO */}
       <Box
         sx={{
           position: "relative",
@@ -103,8 +98,9 @@ useEffect(() => {
           py: { xs: 6, sm: 8 },
           borderTopLeftRadius: { xs: "40px", md: "80px" },
           borderBottomRightRadius: { xs: "40px", md: "80px" },
-          mt: { xs: -6, sm: -6 },
+          mt: { xs: -12, sm: -14 }, // 🔧 Trækker intro op bag heroen
           zIndex: 2,
+          boxShadow: "0 -10px 25px rgba(0,0,0,0.2)",
         }}
       >
         <Typography
@@ -138,7 +134,7 @@ useEffect(() => {
         </Typography>
       </Box>
 
-      {/* Ydre container – fylder hele skærmen */}
+      {/* LISTE MED OPHOLD */}
       <Box
         sx={{
           position: "relative",
@@ -150,10 +146,10 @@ useEffect(() => {
           backgroundColor: "#D4D9D3",
           py: { xs: 6, sm: 8 },
           mt: { xs: -4, sm: -6 },
-          mb: -4,
+          pb: 0, // 🔧 ingen ekstra afstand i bunden
+          overflow: "hidden", // 🔧 fjern eventuel overscroll
         }}
       >
-        {/* Indre container – centrerer kortene */}
         <Box
           sx={{
             maxWidth: "1200px",
@@ -204,8 +200,8 @@ useEffect(() => {
                   <Typography
                     sx={{
                       fontFamily: "'Zen Loop', cursive",
-                      fontSize: { xs: "2rem", sm: "2rem" },
-                      lineHeight: 1.1,
+                      fontSize: { xs: "1rem", sm: "1.9rem" },
+                      lineHeight: 1.5,
                     }}
                   >
                     {stay.title}
@@ -213,22 +209,21 @@ useEffect(() => {
                   <Typography
                     sx={{
                       fontFamily: "'Zen Loop', cursive",
-                      fontSize: { xs: "1.8rem", sm: "1rem" },
+                      fontSize: { xs: "1.8rem", sm: "1.5rem" },
                     }}
                   >
-                    {stay.people}
+                    Antal personer: {stay.numberOfPersons}
                   </Typography>
                   <Typography
                     sx={{
                       fontFamily: "'Zen Loop', cursive",
-                      fontSize: { xs: "1.8rem", sm: "2rem" },
+                      fontSize: { xs: "1.8rem", sm: "1.5rem" },
                     }}
                   >
                     Fra {stay.price},-
                   </Typography>
                 </Box>
 
-                {/* Opholdsbillede */}
                 <Box
                   component="img"
                   src={stay.image}
@@ -267,7 +262,7 @@ useEffect(() => {
                     <Typography
                       sx={{
                         fontFamily: "'Zen Loop', cursive",
-                        fontSize: { xs: "1.6rem", sm: "1.6rem" },
+                        fontSize: { xs: "1.6rem", sm: "1.5rem" },
                       }}
                     >
                       Læs mere
@@ -281,3 +276,4 @@ useEffect(() => {
     </Box>
   );
 }
+

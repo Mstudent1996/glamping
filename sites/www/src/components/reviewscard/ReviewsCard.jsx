@@ -1,13 +1,11 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function ReviewsCard({ review }) {
-  const theme = useTheme();
-
   return (
     <Box
       sx={{
         width: "100%",
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: "#829B97",
         color: "white",
         p: 3,
         borderRadius: "30px 0",

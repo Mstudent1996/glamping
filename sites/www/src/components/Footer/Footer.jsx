@@ -20,7 +20,6 @@ export default function Footer() {
         justifyContent={{ xs: "center", md: "space-between" }}
         textAlign="center"
       >
-        {/* SOCIAL ICONS */}
         <Grid>
           <Box
             sx={{
@@ -29,6 +28,7 @@ export default function Footer() {
               gap: 2,
             }}
           >
+            {/* Social medier til venstre */}
             <IconButton
               component="a"
               href="https://www.facebook.com"
@@ -48,6 +48,7 @@ export default function Footer() {
             </IconButton>
           </Box>
 
+          {/* Mobil layout for logo */}
           <Box
             sx={{
               display: { xs: "flex", md: "none" },
@@ -78,7 +79,7 @@ export default function Footer() {
           </Box>
         </Grid>
 
-        {/* DESKTOP LOGO */}
+        {/* Desktop layout for logo */}
         <Grid
           sx={{ display: { xs: "none", md: "flex" }, justifyContent: "center" }}
         >
@@ -107,7 +108,7 @@ export default function Footer() {
           </Box>
         </Grid>
 
-        {/* RIGHT SECTION (desktop only for now) */}
+        {/* Kontakt information til højre */}
         <Grid
           sx={{
             display: { xs: "none", md: "flex" },

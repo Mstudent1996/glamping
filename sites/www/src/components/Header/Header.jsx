@@ -33,7 +33,6 @@ export default function Header() {
         <AppBar
           position="absolute"
           sx={{
-            background: "transparent",
             top: 0,
             zIndex: 1,
             backgroundColor: "#33626C",
@@ -86,8 +85,10 @@ export default function Header() {
         <AppBar
           position="fixed"
           sx={{
-            background: "transparent",
-            boxShadow: "none",
+            backgroundColor: "#33626C",
+            padding: "10px",
+            position: "fixed",
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)",
             top: 0,
             zIndex: 10,
           }}

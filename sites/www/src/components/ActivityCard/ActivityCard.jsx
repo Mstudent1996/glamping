@@ -21,7 +21,6 @@ export default function ActivityCard({ title, image, time, description }) {
         backgroundColor: "#CED3CD",
       }}
     >
-
       {/* Billede */}
       <Box sx={{ position: "relative" }}>
         <img
@@ -74,7 +73,7 @@ export default function ActivityCard({ title, image, time, description }) {
             left: "50%",
             transform: "translateX(-50%) translateY(30%)",
             width: "90%",
-            backgroundColor: "#3C6B6A",
+            backgroundColor: "#33626C",
             color: "white",
             p: 3,
             borderTopLeftRadius: "40px",

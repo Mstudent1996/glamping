@@ -12,7 +12,7 @@ export default function StaysPage() {
     axios
       .get("http://localhost:3042/stays")
       .then((res) => {
-        setStays(res.data.data);
+        setStays(res.data.data || res.data);
       })
       .catch((err) => console.error("Fejl ved hentning af ophold:", err))
       .finally(() => setLoading(false));

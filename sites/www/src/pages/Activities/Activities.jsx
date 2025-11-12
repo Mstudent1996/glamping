@@ -64,7 +64,7 @@ export default function Activities() {
           position: "relative",
           zIndex: 2,
           mt: { xs: "-60px", md: "-80px" },
-          backgroundColor: "#466B6A",
+          backgroundColor: "#33626C",
           color: "white",
           borderTopLeftRadius: { xs: "30px", md: "50px" },
           borderBottomRightRadius: { xs: "30px", md: "50px" },
@@ -111,7 +111,7 @@ export default function Activities() {
         sx={{
           backgroundColor: "#CED3CD",
           pt: 10,
-          mt: { xs: "-30px", md: "-70px" }, // ⬅️ trækker sektionen lidt op bag radius
+          mt: { xs: "-30px", md: "-70px" },
           pb: 6,
           zIndex: 1,
           position: "relative",

@@ -292,8 +292,7 @@ export default function Contact() {
               variant="standard"
               fullWidth
               required
-              slotProps={{
-                disableUnderline: true,
+              InputProps={{
                 sx: {
                   backgroundColor: "transparent",
                   border: "1px solid rgba(255,255,255,0.8)",
